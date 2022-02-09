@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react'
+import Button from "./button";
+import MyListItem from "./my-list-item";
 
 function App() {
 
@@ -58,6 +60,17 @@ function App() {
       <>
         <div className="App">
 
+          {/*props*/}
+
+          {/*<TopBar /> -> TopBarItem*/}
+          {/*<Description />*/}
+          {/*<RightSideBar /> -> SideBarItem*/}
+
+          <Button buttonText={'Submit'} color={'red'} />
+          <Button buttonText={'Place Order'} />
+          <Button buttonText={'Continue'} color={'green'} />
+
+
           <button onClick={onButtonClick}>Click me</button>
 
           <h2 style={counter==6 ? {color: 'red'} : {color: 'green'}}>The counter value is {counter}</h2>
@@ -76,7 +89,7 @@ function App() {
           <h1>The current list is: {JSON.stringify(list)}</h1>
 
 
-          <input value={todoText} onChange={onInputChange} type="text"/>&nbsp;
+          <input className={'border'} value={todoText} onChange={onInputChange} type="text"/>&nbsp;
 
           <button onClick={submitItem}>Submit</button>
 
@@ -84,7 +97,8 @@ function App() {
             <h1 style={{fontSize: '20px'}}>The List Items</h1>
             <ul>
               {list && list.map((listItem, idx) => {
-                return <li key={idx}>{listItem}</li>
+                // return <li key={idx}>{listItem}</li>
+                return <MyListItem key={idx} listItem={listItem}/>
               })}
             </ul>
 
