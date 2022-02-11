@@ -3,6 +3,9 @@ import './App.css';
 import {useState, useEffect} from 'react'
 import Button from "./button";
 import MyListItem from "./my-list-item";
+import { Routes, Route, Link } from "react-router-dom";
+import Portfolio from "./portfolio";
+import About from "./about";
 
 function App() {
 
@@ -61,6 +64,14 @@ function App() {
         <div className="App">
 
           {/*props*/}
+
+          <Link to="/portfolio" className={'border bg-blue-500'}>Portfolio</Link>
+          <Link to="/about">About</Link>
+
+          <Routes>
+            <Route path="portfolio" element={<Portfolio />} />
+            <Route path="about" element={<About />} />
+          </Routes>
 
           {/*<TopBar /> -> TopBarItem*/}
           {/*<Description />*/}
