@@ -58,6 +58,12 @@ function App() {
     setTodoText('')
   };
 
+  const onItemClick = async (item) => {
+    console.log('an item was clicked!')
+    console.log('the item clicked is', item)
+
+  };
+
 
   return (
       <>
@@ -109,7 +115,7 @@ function App() {
             <ul>
               {list && list.map((listItem, idx) => {
                 // return <li key={idx}>{listItem}</li>
-                return <MyListItem key={idx} listItem={listItem}/>
+                return <MyListItem key={idx} someFunc={onItemClick} listItem={listItem}/>
               })}
             </ul>
 
